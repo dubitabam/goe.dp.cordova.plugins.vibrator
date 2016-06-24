@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="goe.dp.cordova.plugins.vibrator"
+        version="0.0.1">
+
+    <name>Vibrator</name>
+    <description>Cordova Vibration Plugin for Android Devices</description>
+
+    <engines>
+        <engine name="cordova" version=">=3.6.0" />
+    </engines>
+
+    <js-module src="www/vibrator.js" name="Vibrator">
+        <clobbers target="window.plugins.vibrator" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Vibrator">
+                <param name="android-package" value="goe.dp.cordova.plugins.vibrator.Vibrator" />
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.VIBRATE" />
+        </config-file>
+        <source-file src="src/android/goe/dp/cordova/plugins/vibrator/Vibrator.java" target-dir="src/goe/dp/cordova/plugins/vibrator" />
+    </platform>
+
+</plugin>
